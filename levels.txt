@@ -1,0 +1,83 @@
+# definição do tamanho da janela 
+# tem de ser o primeiro comando no ficheiro
+# parâmetros: <window_size_x> < window_size_y>
+#     window_size_x - dimensão em pixel do comprimento da janela
+#     window_size_y - dimensão em pixel da altura da janela
+GAME  1200  800 
+#GAME    680 480
+
+# primeiro nível
+
+# Para testar definição fora de nível
+#WALL VERT  15  3 10
+#FOOD 21 3 20 6
+#SNAKE 3 10 10 5 
+
+# cabeçalho para descrição de nível de jogo
+# parâmetros: <cells_x> <cells_y> target <target_size> <target_timeout> 
+#    cells_x -> número de quadrículas do tabuleiro de jogo em comprimento
+#    cells_y -> número de quadrículas do tabuleiro de jogo em altura
+#    target_size - tamanho da cobrar a atingir no nível
+#    target_timeout - tempo máximo em segundos para alcançar o tamanho da cobra no nível
+#    surround - cerca o mapa se 1, se 0 não cerca
+#    velocity - velocidade em milisegundos a que a cobra se desloca
+LEVEL 25 16 TARGET 5 17 0 VELOCITY 100
+
+#parâmetros <type> <pos_x> <pos_y> <size>
+#   type -> tipo da parede, vertical (vert) ou horizontal (horiz)
+#   pos_x -> posição (0.. cells_x - 1) do início da parede em x
+#   pos_y -> posição (0.. cells_y - 1) do início da parede em y
+#   size  -> dimensão da parede em quadrícula de jogo 
+#
+# as paredes têm de ser colocadas antes dos outros personagens do nível
+WALL VERT  15  3 10
+
+WALL HORIZ   10 7 10
+
+# parâmetros: <pos_x> <pos_y> <lifetime> <energy>
+#   pos_x -> posição (0.. cells_x - 1) do início da comida em x
+#   pos_y -> posição (0.. cells_y - 1) do início da comida em y
+#   lifetime -> tempo de vida da comida na posição atual (em segundos)
+#   energy   -> energia transmitida à cobra  (-6..-1 ou 1 ..6)
+FOOD 21 3 20 12
+
+# descrição do estado inicial da cobra
+# parâmetros: <pos_x> <pos_y> <time_to_eat> <penalty>
+#   pos_x -> posição (0.. cells_x - 1) da cabeça da cobra em x
+#   pos_y -> posição (0.. cells_y - 1) da cabeça da cobra em y
+#   time_to_eat -> limite de tempo para cobra comer. 
+#                  sofre redução detemanho se não o fizer.
+#   penalty ->     redução do tamanho a aplicar em caso de falta de alimento
+#   colision -> tipo de colisão, morte (DIE), ignorar (IGNORE), cortar (CUT)
+SNAKE 3 10 10 5 COLISION CUT
+
+
+# segundo nível
+
+LEVEL 50 28 TARGET 10 15 1 VELOCITY 100
+
+#paredes 
+
+WALL VERT 10 5 10
+
+WALL VERT  3 14 10
+
+WALL VERT  39 5 8
+
+WALL HORIZ  20 25 16
+
+WALL VERT   26 12 10
+
+WALL HORIZ  20 5 10
+
+# comida 
+
+FOOD 37 8 6 6
+
+FOOD 46 25 8 -2
+
+SNAKE 3 10 10 4
+
+
+
+
